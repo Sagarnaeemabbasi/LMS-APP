@@ -1,0 +1,55 @@
+.App {
+  text-align: center;
+}
+.flex {
+  display: flex;
+  margin: 60px;
+  flex-grow: 1;
+}
+.signupBody,
+.loginBody {
+  height: 100vh;
+  background-color: #efefef;
+  margin: 0px;
+}
+.innerFlex {
+  width: 50%;
+}
+.signupBox,
+.loginBox {
+  background-color: white;
+  border-radius: 6px;
+  /* width: 35%; */
+  height: 60%;
+  margin-top: 50px;
+}
+.textFeild,
+.button {
+  width: 300px;
+  font-size: 23px;
+}
+.upperh3 {
+  display: none;
+}
+
+@media only screen and (max-width: 700px) {
+  .h3 {
+    display: none;
+  }
+
+  .signupBox,
+  .loginBox {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+  }
+}
+@media only screen and (max-height: 500px) {
+  .signupBox,
+  .loginBox {
+    height: 80%;
+    margin-top: 50px;
+  }
+}
