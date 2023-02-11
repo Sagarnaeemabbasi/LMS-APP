@@ -4,7 +4,9 @@ import TextField from "@mui/material/TextField";
 import { Box } from "@mui/system";
 import { useNavigate } from "react-router-dom";
 import { signIn } from "../Config/FirebaseMethod";
+import useMediaQuery from "@mui/material/useMediaQuery";
 import Navbar from "../Components/Navbar";
+import { useTheme } from "@mui/material/styles";
 export default function Sinup() {
   let [email, setEmail] = useState("");
   let [password, setPassword] = useState("");
@@ -12,6 +14,8 @@ export default function Sinup() {
   let login = () => {
     navigate("/login");
   };
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.up("sm"));
   const signup = () => {
     signIn({
       email: email,
@@ -29,6 +33,7 @@ export default function Sinup() {
   return (
     <>
       <Navbar login={login} />
+
       <div className="flex signupBody">
         <div className="innerFlex">
           <Typography
@@ -46,28 +51,41 @@ export default function Sinup() {
 
         <div className="innerFlex signupBox">
           <Box>
-            <Box m={5}>
+            <Box>
               <TextField
                 onChange={(e) => setEmail(e.target.value)}
                 variant="filled"
                 label="Enter Your Email"
                 type="Email"
-                // size="normal"
-
+                style={
+                  matches
+                    ? { width: "300px", marginTop: 18 }
+                    : { width: "220px", marginTop: 14}
+                }
                 className="textFeild"
               />
             </Box>
-            <Box m={5}>
+            <Box >
               <TextField
                 onChange={(e) => setPassword(e.target.value)}
                 variant="filled"
                 label="Enter Your Password"
                 type="password"
                 className="textFeild"
+                style={
+                  matches
+                    ? { width: "300px", marginTop: 18 }
+                    : { width: "220px", marginTop: 14 }
+                }
               />
             </Box>
             <Box>
-              <Button variant="contained" onClick={signup} className="button">
+              <Button
+                variant="contained"
+                style={matches ? { width: "300px" , marginTop: 18} : { width: "220px" , marginTop: 14 }}
+                onClick={signup}
+                className="button"
+              >
                 {/* // {isLoading?<} */}
                 SignUp
               </Button>

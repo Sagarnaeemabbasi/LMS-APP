@@ -53,3 +53,13 @@
     margin-top: 50px;
   }
 }
+
+@media only screen and (max-width: 410px) {
+
+
+  .signupBox,
+  .loginBox {
+ 
+    width: 80%;
+  }
+}
